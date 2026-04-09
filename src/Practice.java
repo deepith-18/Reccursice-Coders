@@ -27,4 +27,18 @@ public class Practice {
         }while(n!=0);
         return dec;
     }
+
+    static int hextoDec(String hx){
+
+        String st = "0123456789ABCDEF";
+        hx = hx.toUpperCase();
+        int dec=0,p=1;
+
+        for(int i=hx.length()-1;i>=0;i--){
+            char ch = hx.charAt(i);
+            dec = dec+ st.indexOf(ch)*p;
+            p*=16;
+        }
+        return dec;
+    }
 }
