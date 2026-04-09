@@ -29,4 +29,5 @@ public class Employee {
         System.out.println("Employee salary : " + this.sal);
         System.out.println("--------------------------------");
     }
+
 }
