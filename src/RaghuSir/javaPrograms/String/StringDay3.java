@@ -7,7 +7,7 @@ public class StringDay3 {
 
         String str = sc.nextLine();
 //        str = str.toUpperCase();
-//        System.out.println(str);
+        System.out.println(str);
 
         char [] ch = str.toCharArray();
         for(int i=0;i<ch.length;i++){
