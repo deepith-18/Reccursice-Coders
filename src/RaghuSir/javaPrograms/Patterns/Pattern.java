@@ -12,7 +12,7 @@ public class Pattern {
 //        }
 //        pattern(5);
 //        pattern2(5);
-        pattern17(5);
+        pattern16(5);
     }
 
     static void pattern(int n) {

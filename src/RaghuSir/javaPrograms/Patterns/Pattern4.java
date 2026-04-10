@@ -261,6 +261,15 @@ static void pattern8(int n){
             System.out.println();
         }
 }
+
+/*
+
+5 4 3 2 1 2 3 4 5
+  4 3 2 1 2 3 4
+    3 2 1 2 3
+      2 1 2
+        1
+ */
     static void pattern9(int n){
         for(int i=n;i>=1;i--){
             int ans=i;
@@ -280,6 +289,14 @@ static void pattern8(int n){
             System.out.println();
         }
     }
+    /*
+        5
+      5 4 5
+    5 4 3 4 5
+  5 4 3 2 3 4 5
+5 4 3 2 1 2 3 4 5
+
+     */
 
     static void pattern10(int n){
         for(int i=1;i<=n;i++){
@@ -299,6 +316,14 @@ static void pattern8(int n){
             System.out.println();
         }
     }
+
+    /*
+        5
+      4 5 4
+    3 4 5 4 3
+  2 3 4 5 4 3 2
+1 2 3 4 5 4 3 2 1
+     */
 
     static void pattern12(int n){
 
@@ -322,7 +347,7 @@ static void pattern8(int n){
 
     public static void main (String[]args){
 //        pattern2(7);
-    pattern12(5);
+    pattern5(5);
     }
 
 }
