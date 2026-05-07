@@ -1,0 +1,33 @@
+package RaghuSir.javaPrograms.Reccursion;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class PalindromeString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the String");
+        String str = sc.nextLine();
+
+        boolean res = isPalindrome(str);
+        if(res){
+            System.out.println("String is Palindrome");
+        }else{
+            System.out.println("String is not a Palindrome");
+        }
+    }
+
+    static boolean isPalindrome(String str){
+        return isPalindrome(str.toLowerCase(),0,str.length()-1);
+    }
+
+    static boolean isPalindrome(String str,int start,int end){
+        if(start>=end){
+            return true;
+        }
+        if(str.charAt(start) != str.charAt(end)){
+            return false;
+        }
+        return isPalindrome(str,start+1,end-1);
+    }
+}
