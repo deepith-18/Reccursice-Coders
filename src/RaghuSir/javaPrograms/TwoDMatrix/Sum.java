@@ -11,7 +11,7 @@ public class Sum {
         int col = sc.nextInt();
 
         int[][] mat= new int[row][col];
-        System.out.println("Enter the "+row*col+"values rowise: ");
+        System.out.println("Enter the "+row*col+"values row wise: ");
 
         for(int i=0;i<mat.length;i++){
             for(int j=0;j<mat[i].length;j++){
@@ -19,7 +19,7 @@ public class Sum {
             }
         }
 
-        System.out.println("User enterd matrix: ");
+        System.out.println("User entered matrix: ");
 
         for(int i=0;i<mat.length;i++){
             for (int j=0;j<mat[i].length;j++){
