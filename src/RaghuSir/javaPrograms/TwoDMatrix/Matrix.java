@@ -149,4 +149,73 @@ public class Matrix {
         return count;
     }
 
+    static int[] rowWiseSum(int[][]mat){
+        int []rows= new int[mat.length];
+
+        for(int i=0;i<mat.length;i++){
+            for(int j=0;j<mat[i].length;j++){
+                rows[i]=rows[i]+mat[i][j];
+            }
+        }
+        return rows;
+    }
+
+
+    static  int[] colWiseSum(int [][]mat){
+        int []col = new int[mat[0].length];
+
+        for(int i=0;i<mat[0].length;i++){
+            for(int j=0;j<mat.length;j++){
+                col[i] += mat[j][i];
+            }
+        }
+        return col;
+    }
+
+    static int[] rowWiseBig(int[][]mat) {
+        int[] big = new int[mat.length];
+        for(int i=0;i<mat.length;i++){
+            for(int j=0;j<mat[i].length;j++){
+                if(big[i] > mat[i][j]){
+                    big[i]=mat[i][j];
+                }
+            }
+        }
+        return big;
+
+    }
+
+    static int[] rowWiseBig1(int[][]mat) {
+        int[] rb = new int[mat.length];
+
+        for(int i=0;i<mat.length;i++){
+            for(int j=0;j<mat[i].length;j++){
+                rb[i]=mat[0][j];
+                if(rb[i] > mat[i][j]){
+                    rb[i]=mat[i][j];
+                }
+            }
+        }
+        return rb;
+
+    }
+
+
+    static int[] colWiseBig1(int[][]mat) {
+        int[] rb = new int[mat.length];
+
+        for(int i=0;i<mat[i].length;i++){
+            for(int j=0;j<mat.length;j++){
+                rb[i]=mat[i][0];
+                if(rb[i] > mat[i][j]){
+                    rb[i]=mat[i][j];
+                }
+            }
+        }
+        return rb;
+
+    }
+
+
+
 }
