@@ -217,5 +217,89 @@ public class Matrix {
     }
 
 
+    static void rowWiseSwap(int[][]mat){
+        for(int i=0;i<mat.length;i++){
+            int l=0,h=mat[i].length-1;
+            while(l<h){
+                int temp = mat[i][l];
+                mat[l][i]=mat[i][h];
+                mat[i][h]=temp;
+                l++;
+                h--;
+            }
+        }
+    }
+
+    static void colWiseReverse(int [][]mat){
+        for(int i=0;i<mat[0].length;i++){
+            int l=0,h=mat[i].length-1;
+            while(l<h){
+                int temp = mat[l][i];
+                mat[l][i]=mat[h][i];
+                mat[h][i]=temp;
+                l++;
+                h--;
+            }
+        }
+
+
+
+    }
+
+    static void diagonelWiseReverse(int [][]mat){
+        int l=0,h=mat.length-1;
+
+        while(l<h){
+
+            int temp= mat[l][l];
+            mat[l][l]=mat[h][h];
+            mat[h][h]=temp;
+
+            temp = mat[l][h];
+            mat[l][h]=mat[h][l];
+            mat[h][l]=temp;
+
+            l++;
+            h--;
+        }
+        }
+    static int[] diagonelWiseSum(int [][]mat){
+        int psum=0,ssum=0;
+
+        for(int i=0;i<mat.length;i++){
+            psum = psum + mat[i][i];
+            ssum = ssum + mat[i][mat.length-1-i];
+        }
+        return new int[]{psum,ssum};
+    }
+
+    static int[] diagonelWiseBig(int[][]mat){
+        int pbig = mat[0][0],sbig = mat[0][mat.length-1];
+
+        for(int i=0;i<mat.length;i++){
+
+            if(mat[i][i]>pbig){
+                pbig=mat[i][i];
+            }
+            if(mat[i][mat.length-1-i]>sbig){
+                sbig=mat[i][mat.length-1-i];
+            }
+
+        }
+        return new int[]{pbig,sbig};
+    }
+
+    static void transposeSquareMat(int[][] mat){
+        for(int i=0;i<mat.length;i++){
+            for(int j=i+1;i<mat[i].length;i++){
+                int temp = mat[i][j];
+                mat[i][j]=mat[j][i];
+                mat[j][i]=temp;
+            }
+        }
+    }
+
+
+
 
 }
