@@ -300,6 +300,24 @@ public class Matrix {
     }
 
 
+    static int[][] multiplyMat(int[][]x,int[][]y){
+        if(x[0].length != y.length){
+            return null;
+        }
+
+        int[][] z = new int[x.length][y[0].length];
+
+        for(int i=0;i<x.length;i++){
+            for(int j=0;j<y[0].length;j++){
+                for(int k=0;k<y.length;k++){
+                    z[i][j] = z[i][j] + x[i][k] * y[k][j];
+                }
+            }
+        }
+        return z;
+    }
+
+
 
 
 }

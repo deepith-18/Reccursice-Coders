@@ -3,8 +3,8 @@ package OOPS.RohanSir.Object;
 public class Main {
     public static void main(String[] args) {
         Main m = new Main();
-        System.out.println(m);
-        System.out.println(m.toString());
+        java.lang.System.out.println(m);
+        java.lang.System.out.println(m.toString());
 
     }
 }
