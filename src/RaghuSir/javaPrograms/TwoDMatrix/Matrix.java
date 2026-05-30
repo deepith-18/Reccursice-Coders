@@ -318,6 +318,51 @@ public class Matrix {
     }
 
 
+    static void spiralMatrix(int[][]mat){
+        int n = mat.length;
+
+        for(int i=0,j=n-1;i<j;i++,j--){
+            for(int k=0;k<j;k++){
+                System.out.print(mat[i][k]+" ");
+            }
+            for(int k=i;k<j;k++){
+                System.out.print(mat[k][j]+" ");
+            }
+            for(int k=j;k>i;k--){
+                System.out.print(mat[j][k]+" ");
+            }
+            for(int k=j;k>i;k--){
+                System.out.print(mat[k][i]+" ");
+            }
+            if(n%2 == 1){
+                System.out.print(mat[n/2][n/2]);
+            }
+        }
+    }
+
+    static void antiSpiralMatrix(int[][]mat){
+        int n = mat.length;
+
+        for(int i=0,j=n-1;i<j;i++,j--){
+            for(int k=0;k<j;k++){
+                System.out.print(mat[k][i]+" ");
+            }
+            for(int k=i;k<j;k++){
+                System.out.print(mat[j][k]+" ");
+            }
+            for(int k=j;k>i;k--){
+                System.out.print(mat[k][j]+" ");
+            }
+            for(int k=j;k>i;k--){
+                System.out.print(mat[i][k]+" ");
+            }
+            if(n%2 == 1){
+                System.out.print(mat[n/2][n/2]);
+            }
+        }
+    }
+
+
 
 
 }
