@@ -10,24 +10,33 @@ public class Anagram {
         System.out.println("Enter the String 2: ");
         String st2 = sc.nextLine();
 
+        boolean ans = isAnagram(st1,st2);
+        System.out.println(ans);
+
 
     }
-//    static boolean isAnagram(String st){
-//        int[] ct1 = new int[26];
-//        int[] ct2 = new int[26];
-//
-//        for(int i=0;i<26;i++){
-//            if(ct1[i]=)
-//        }
-//
-//        for(int i = 0; i < st.length(); i++){
-//            char ch = st.charAt(i);
-//
-//            if(ch >= 'A' && ch <= 'Z')
-//                count[ch -   'A']++;
-//            else if(ch >= 'a' && ch <= 'z')
-//                count[ch - 'a']++;
-//        }
-//
-//    }
+    static boolean isAnagram(String st1,String st2){
+
+        st1 = st1.toLowerCase();
+        st2 = st2.toLowerCase();
+
+        if(st1.length() != st2.length()){
+            return false;
+        }
+
+        int [] count = new int[26];
+
+        for(int i=0;i<st1.length();i++){
+            count[st1.charAt(i)-'a']++;
+            count[st2.charAt(i)-'a']--;
+        }
+
+        for(int x:count){
+            if(x!=0){
+                return false;
+            }
+        }
+        return true;
+
+    }
 }
