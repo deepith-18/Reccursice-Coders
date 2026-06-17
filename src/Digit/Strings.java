@@ -1,4 +1,4 @@
-package GoDigit;
+package Digit;
 
 import java.util.ArrayList;
 import java.util.List;
