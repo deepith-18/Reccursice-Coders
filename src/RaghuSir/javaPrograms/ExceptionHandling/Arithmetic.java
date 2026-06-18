@@ -11,10 +11,14 @@ public class Arithmetic {
             int b = sc.nextInt();
             int q=a/b;
             System.out.println("Quotiont is : "+q);
-        }catch (InputMismatchException e){
-            System.out.println("InputMismatch Exception");
-        } catch(ArithmeticException e) {
-            System.out.println("Second value not be zero");
+        }catch (InputMismatchException | ArithmeticException | ArrayIndexOutOfBoundsException e){
+            if(e instanceof InputMismatchException){
+                System.out.println("Input must be Integer");
+            }else if(e instanceof ArithmeticException){
+                System.out.println("Second value should not be zero");
+            }else{
+                System.out.println("Index not in the range");
+            }
         }
         System.out.println("Thank you....!s");
     }
