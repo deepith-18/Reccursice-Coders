@@ -9,10 +9,14 @@ public class Array {
 //         duplicate(new int []{1,2,3,2,4,3,5,5});
 
 
-           moveZeros(new int[]{0,1,0,3,12});
+//           moveZeros(new int[]{0,1,0,3,12});
 //        int [] arr = {1,2,2,3,3,4};
 //        int[] ans = removeDup(arr);
 //        System.out.println(Arrays.toString(ans));
+//        intersection(new int[]{1,2,3,4},new int[]{3,4,5,6});
+
+        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println(maxSubArray(arr)); // 6
     }
     static int maxELe(int [] arr){
         int max=arr[0];
@@ -145,6 +149,101 @@ public class Array {
             c[a.length+i]=b[i];
         }
         return c;
+    }
+
+    static void intersection(int [] a,int[] b){
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<b.length;j++){
+                if(a[i]==b[j]){
+                    System.out.print("["+a[i]+"]"+" ");
+                }
+            }
+        }
+    }
+
+    static int maxSubArray(int[]arr){
+        int currentSum=arr[0];
+        int maxSum=arr[0];
+
+        for(int i=0;i<arr.length;i++){
+            currentSum = Math.max(arr[i],currentSum+arr[i]);
+            maxSum = Math.max(maxSum,currentSum);
+        }
+        return maxSum;
+    }
+
+    static int small(int[]arr){
+
+        if(arr.length==0){
+            throw new IllegalArgumentException("Array is empty");
+        }
+        int small = Integer.MAX_VALUE;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<small){
+                small=arr[i];
+            }
+        }
+        return small;
+    }
+
+    static int secondSmall(int [] arr){
+        int small=Integer.MAX_VALUE;
+        int secSmall=Integer.MAX_VALUE;
+
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<small){
+                secSmall=small;
+                small=arr[i];
+            }else if(arr[i]<secSmall && arr[i]>small)
+                secSmall=arr[i];
+        }
+        return secSmall;
+    }
+
+    static boolean isSorted(int[] arr){
+        boolean sorted=true;
+        for(int i=0;i<arr.length-1;i++){
+            if(arr[i]>arr[i+1]){
+                sorted=false;
+                break;
+            }
+        }
+        return sorted;
+    }
+
+    static int[] union(int[]a,int[]b){
+        HashSet<Integer> set = new HashSet<>();
+
+        for(int x:a){
+            set.add(x);
+        }
+        for(int y:b){
+            set.add(y);
+        }
+        int[] res= new int[set.size()];
+        int i=0;
+        for(int x:set){
+            res[i++]=x;
+        }
+        return res;
+    }
+
+    static int majority(int[]arr){
+        int candidate = arr[0];
+        int count=1;
+
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]==candidate){
+                count++;
+            }else{
+                count--;
+            }
+            if(count == 0){
+                candidate = arr[i];
+                count=1;
+            }
+        }
+        return candidate;
     }
 
 
