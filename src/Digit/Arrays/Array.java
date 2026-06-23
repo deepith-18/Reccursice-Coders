@@ -15,8 +15,10 @@ public class Array {
 //        System.out.println(Arrays.toString(ans));
 //        intersection(new int[]{1,2,3,4},new int[]{3,4,5,6});
 
-        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        System.out.println(maxSubArray(arr)); // 6
+//        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+//        System.out.println(maxSubArray(arr)); // 6
+
+        leaders(new int[]{16, 17, 4, 3, 5, 2});
     }
     static int maxELe(int [] arr){
         int max=arr[0];
@@ -244,6 +246,63 @@ public class Array {
             }
         }
         return candidate;
+    }
+
+
+    static void leaders(int[]arr){
+        int max=arr[arr.length-1];
+        System.out.print(max+" ");
+
+        for(int i=arr.length-2;i>=0;i--){
+            if(arr[i]>max){
+                max=arr[i];
+                System.out.print(max+" ");
+            }
+        }
+    }
+
+    static int maxConsOne(int[]arr){
+        int count=0;
+        int max=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==1){
+                count++;
+                max = Math.max(max,count);
+            }else{
+                count=0;
+            }
+        }
+        return max;
+    }
+
+    static int stockBySell(int []arr){
+        int minPrice=arr[0];
+        int maxProfit=0;
+
+        for(int i=0;i<arr.length;i++){
+            minPrice = Math.min(minPrice,arr[i]);
+
+            int profit = arr[i]-minPrice;
+            maxProfit = Math.max(maxProfit,profit);
+        }
+        return maxProfit;
+    }
+
+    static int[] productArray(int [] arr){
+        int n = arr.length;
+        int [] ans = new int[arr.length];
+        int prodL=1;
+        int prodR=1;
+
+        for(int i=n-1;i>=0;i++){
+            ans[i]=prodR;
+            prodR=prodR*arr[i];
+        }
+        for(int i=0;i<n;i++){
+            ans[i]=ans[i]*prodL;
+            prodL=prodL*arr[i];
+        }
+        return ans;
     }
 
 
