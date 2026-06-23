@@ -305,5 +305,78 @@ public class Array {
         return ans;
     }
 
+    static int longestCons(int []arr){
+        HashSet<Integer> set = new HashSet<>();
+
+        for(int num:arr){
+            set.add(num);
+        }
+
+        int longest=0;
+
+        for(int num :set){
+            if(!set.contains(num-1)){
+                int currentSum=num;
+                int count=1;
+
+                while(set.contains(currentSum+1)){
+                    currentSum++;
+                    count++;
+                }
+                longest = Math.max(longest,count);
+            }
+        }
+        return longest;
+    }
+
+    static int[] twoSum2(int[]arr,int target){
+        HashMap<Integer,Integer> map = new HashMap<>();
+
+        for(int i=0;i<arr.length;i++){
+            int compliment= target-arr[i];
+
+            if(map.containsKey(compliment)){
+                return new int[]{map.get(compliment),i};
+            }
+            map.put(arr[i],i);
+        }
+        return new int[]{-1,-1};
+    }
+
+
+
+
+
+
+
+
+
+  static List<List<Integer>> threeSum(int []nums){
+
+        Arrays.sort(nums);
+        Set<List<Integer>> result = new HashSet<>();
+
+        for(int i=0;i<nums.length-2;i++){
+
+            int left=i+1;
+            int right=nums.length-1;
+
+            while (left<right){
+                int sum = nums[i]+nums[left]+nums[right];
+
+                if(sum==0){
+                    result.add(Arrays.asList(nums[i],nums[left],nums[right]));
+                    left++;
+                    right--;
+                }else if(sum <0){
+                    left++;
+                }else{
+                    right--;
+                }
+            }
+        }
+        return new ArrayList<>(result);
+  }
+
 
 }
