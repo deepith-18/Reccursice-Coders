@@ -3,7 +3,7 @@ package RaghuSir.javaPrograms.ExceptionHandling;
 public class MainExcaeption4 {
     public static void main(String[] args) {
         Exception e1 = new Exception();
-        System.out.println(00e1);
+        System.out.println(e1);
         System.out.println(e1.getMessage());
         e1.printStackTrace();
 
