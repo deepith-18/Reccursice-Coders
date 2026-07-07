@@ -13,7 +13,7 @@ public class IntDoub {
             if(d1==d2){
                 return 1;
             }
-            return Double.compare(d1,d2);
+            return Double.compare(-d1,d2);
         });
 
         treeSet.add(10);

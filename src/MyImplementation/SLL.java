@@ -114,4 +114,14 @@ public class SLL {
             return  data;
         }
     }
+
+    public void display(){
+        Node temp = head;
+        while(temp.next != null){
+            System.out.print(temp.data+"->");
+            temp = temp.next;
+        }
+        System.out.print(temp.data);
+        System.out.println();
+    }
 }
