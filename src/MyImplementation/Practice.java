@@ -85,10 +85,46 @@ public class Practice {
             }
 
      }
-//
-//     public Integer delete(int index){
-//
-//     }
+
+     public Integer delete(int index){
+        if(index==0){
+            return deleteFirst();
+        }
+        Node temp = head;
+        Node prev=null;
+        while(temp!= null && index>0){
+            prev=temp;
+            temp=temp.next;
+        }
+        if(temp == null){
+            System.out.println("Index out range");
+            return null;
+        }else{
+            Integer data = temp.data;
+            prev.next=temp.next;
+
+            return data;
+        }
+
+
+     }
+
+     public void display(){
+         if(head==null){
+             System.out.println("List is empty");
+             return;
+         }
+         Node temp = head;
+         while(temp.next != null){
+             System.out.println(temp.data);
+             temp = temp.next;
+         }
+         System.out.println(temp.data);
+         System.out.println();
+     }
+
+
+
  }
 
 
