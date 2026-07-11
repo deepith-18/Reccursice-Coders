@@ -6,7 +6,11 @@ public class Prac {
 //        int ans=factorial(a);
 //        System.out.println(ans);
 
-        fibonacci(10);
+//        fibonacci(10);
+
+        int a=12;
+        boolean ans = isPerfect(a);
+        System.out.println(ans);
 
     }
     static int factorial ( int n){
@@ -142,4 +146,197 @@ public class Prac {
             }
             return x;
         }
+
+
+        static boolean isEvenOrOdd(int n){
+        return n%2==0;
+        }
+
+        static void swap(int a,int b){
+           int temp =a;
+            a=b;
+            b=temp;
+        }
+
+        static void swap1(int a,int b){
+
+        a=a+b;
+        b=a-b;
+        a=a-b;
+
+        }
+
+
+        static void swap2(int a,int b){
+        a=a^b;
+        b=a^b;
+        a=a^b;
+        }
+
+        static int largest(int a, int b ,int c){
+        int big=a;
+
+        if(b>big){
+            big=b;
+        }else if(c>big){
+            big=c;
+        }
+        return big;
+        }
+
+        static boolean isPerfect(int n){
+
+        int sum=0;
+        for(int i=1;i<=n/2;i++){
+            if(n%i==0){
+                sum+=i;
+            }
+        }
+        return n==sum;
+        }
+
+        static boolean isPerfect2(int n){
+        if(n<=1){
+            return false;
+        }
+
+        int sum=1;
+
+        for(int i=2;i*i<=n;i++){
+            if(n%i==0){
+                sum+=i;
+
+                if(i*i != n){
+                    sum+= n/i;
+                }
+            }
+        }
+        return n==sum;
+        }
+
+
+        static boolean isStrong(int n){
+        int original=n;
+        int sum=0;
+
+        while(n>0){
+            int rem= n%10;
+            sum += factorial(n);
+            n/=10;
+        }
+        return original==sum;
+        }
+
+
+
+        static boolean isAutomorphic(int n){
+            long square = (long) n*n;
+            int temp=n;
+
+            while(temp>0){
+                if(temp%10 != square%10){
+                    return false;
+                }
+                temp/=10;
+                square/=10;
+            }
+            return true;
+        }
+
+
+        static int decToBin(int n){
+            int bin=0;
+            int place=1;
+
+            while(n>0){
+                int rem=n%2;
+                bin = bin +rem*place;
+                place*=10;
+                n/=2;
+            }
+            return bin;
+        }
+
+        static int binToDec(int n){
+        int dec=0;
+        int place=1;
+
+        while(n>0){
+            int rem=n%10;
+            dec = dec +rem*place;
+            place*=2;
+            n/=10;
+        }
+        return dec;
+        }
+
+        static int hextoDec(String hx){
+            String st ="0123456789ABCDEF";
+            hx = hx.toUpperCase();
+            int dec=0;
+            int p=1;
+
+            for(int i=hx.length()-1;i>=0;i--){
+                char ch = hx.charAt(i);
+                dec = dec+st.indexOf(ch)*p;
+                p*=16;
+            }
+            return dec;
+        }
+
+
+        static boolean powerOfTwo(int n){
+        if(n<=0){
+            return false;
+        }
+        while(n%2==0){
+            n/=2;
+        }
+        return n==1;
+        }
+
+
+        static int singleNum(int[] arr){
+        int res=0;
+        for(int i=0;i<arr.length;i++){
+            res^=arr[i];
+        }
+        return res;
+        }
+
+
+        static int countBit1(int n){
+        int count=0;
+
+        while(n>0){
+            if((n&1)==1){
+                count++;
+            }
+            n=n>>1;
+        }
+        return count;
+        }
+
+        static int countBit2(int n){
+        int count=0;
+        while(n>0){
+            n = n & (n-1);
+            count++;
+        }
+        return count;
+        }
+
+    static int trailingZeros(int n) {
+        int count = 0;
+
+        while (n >= 5) {
+            n /= 5;
+            count += n;
+        }
+
+        return count;
+    }
+
+
+
 }

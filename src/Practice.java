@@ -10,7 +10,7 @@ public class Practice {
             int rem = n % 2;
             bin = bin + rem * place;
             place *= 10;
-            n = n /2;
+            n =      n /2;
         }
         return bin;
     }
