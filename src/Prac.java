@@ -12,6 +12,8 @@ public class Prac {
         boolean ans = isPerfect(a);
         System.out.println(ans);
 
+        noteInWords(23,"Lakh");
+
     }
     static int factorial ( int n){
         int fact = 1;
@@ -337,6 +339,39 @@ public class Prac {
         return count;
     }
 
+
+
+
+static String isXP(int n){
+        int es=0,ms=0;
+        es+=n%10;
+        n=n/10;
+        while(n>9){
+            ms+=n%10;
+        }
+        es+=n;
+        return es==ms ? "Xylem":"Phloem";
+}
+
+
+static void noteInWords(int n,String str){
+
+        if(n==0){
+            return;
+        }
+
+        String []x = {"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen",
+        "Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"};
+
+        String [] y = {" "," ","Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninety"};
+
+        if(n<20){
+            System.out.println(x[n]);
+        }else{
+            System.out.println(y[n/10]+" "+x[n%10]);
+            System.out.print(str+" ");
+        }
+}
 
 
 }
