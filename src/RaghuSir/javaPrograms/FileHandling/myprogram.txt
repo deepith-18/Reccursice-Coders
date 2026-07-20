@@ -1,0 +1,76 @@
+package RaghuSir.javaPrograms.WrapperClasses;
+
+public class MainWrapper {
+    public static void main(String[] args) {
+//        Integer x = new Integer(45);
+//        System.out.println(x);
+//        Double y = 34.43;
+//        System.out.println(y);
+//        System.out.println(x.hashCode());
+//        System.out.println(y.hashCode());
+
+        Double a =34.34;
+        Double b = 34.34;
+        Double c = 45.43;
+        System.out.println(a.equals(b));
+        System.out.println(a==b);
+
+        System.out.println(a.equals(c));
+        System.out.println(a==c);
+
+        System.out.println(a.equals(10));
+        System.out.println(10==10.0);
+
+        System.out.println(a.equals(34.34));
+
+        Double x=10.0;
+        System.out.println(x.equals(10.0)); //If Stored in the Wrapper false
+        System.out.println(x==10);//true not compared with the Wrapper
+
+    }
+}
+package RaghuSir.javaPrograms.WrapperClasses;
+
+public class MainWrapper1 {
+    public static void main(String[] args) {
+        Double a=34.56;
+        int x = a.intValue();
+        byte y = a.byteValue();
+        float z = a.floatValue();
+        short w = a.shortValue();
+        long v= a.longValue();
+        double t = a.doubleValue();
+         t=a;
+        System.out.println(x+" "+y+" "+z+" "+w+" "+v+" "+t);
+    }
+}
+package RaghuSir.javaPrograms.WrapperClasses;
+
+public class MainWrapper2 {
+    public static void main(String[] args) {
+
+        String hx = Integer.toHexString(30);
+        System.out.println(hx);
+        int v1 = Integer.parseInt("234");
+        int v2 = Integer.parseInt("1001",2);
+        System.out.println(v2);
+        int v3 = Integer.parseInt("ABC",16);
+        System.out.println(v3);
+        int v4 = Integer.parseInt("234Deepu",0,3,10);
+        System.out.println(v4);
+    }
+}
+package RaghuSir.javaPrograms.WrapperClasses;
+
+public class WrapperCons {
+    public static void main(String[] args) {
+
+        Integer i1= new Integer(10);  // But for all other 7 classes you have corresponding and the String Construcutor
+        Integer i2 = new Integer("23");
+
+        Character c = new Character('A'); // Only one Constructoe that too this one like char only
+
+        Boolean b1= new Boolean(false);
+        Boolean b2 = new Boolean("True");
+    }
+}
