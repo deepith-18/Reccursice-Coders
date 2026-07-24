@@ -1,9 +1,15 @@
 package RaghuSir.javaPrograms.FileHandling.Serialization;
+
 import java.io.Serializable;
+import java.util.Scanner;
+
 public class Student implements Serializable {
-    Integer id;
-    String name;
-    Double per;
+
+    private static final long serialVersionUID = 1L;
+
+    private Integer id;
+    private String name;
+    private Double per;
 
     public Student(Integer id, String name, Double per) {
         this.id = id;
@@ -11,28 +17,30 @@ public class Student implements Serializable {
         this.per = per;
     }
 
-    public Integer getId() {
-        return id;
+    public static Student readStudent() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter ID: ");
+        Integer id = sc.nextInt();
+
+        System.out.print("Enter Name: ");
+        String name = sc.next();
+
+        System.out.print("Enter Percentage: ");
+        Double per = sc.nextDouble();
+
+        return new Student(id, name, per);
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Double getPer() {
         return per;
-    }
-
-    public void setPer(Double per) {
-        this.per = per;
     }
 
     @Override
