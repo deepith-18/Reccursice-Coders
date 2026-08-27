@@ -12,10 +12,16 @@ public class Main {
         tree.insert(30);
         tree.insert(40);
 
+//        tree.inorder();
+//        System.out.println();
+//        tree.preorder();
+//        System.out.println();
+//        tree.postorder();
+
         tree.inorder();
         System.out.println();
-        tree.preorder();
-        System.out.println();
-        tree.postorder();
+        System.out.println(tree.height());
+        System.out.println(tree.isValidBST());
+        System.out.println(tree.isBalanced());
     }
 }

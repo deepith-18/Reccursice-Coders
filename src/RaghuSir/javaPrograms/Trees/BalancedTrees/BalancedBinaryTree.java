@@ -1,5 +1,7 @@
 package RaghuSir.javaPrograms.Trees.BalancedTrees;
 
+import javax.swing.tree.TreeNode;
+
 public class BalancedBinaryTree {
 
     class Node{
@@ -100,7 +102,89 @@ public class BalancedBinaryTree {
         return root;
     }
 
+    public void delete(Integer key){
+        root = delete(root, key);
+    }
+
+    private Node delete(Node start, Integer key){
+        if(start==null){
+            return null;
+        }
+
+        if(key.compareTo(start.data)<0){
+            start.left = delete(start.left,key);
+        }else if(key.compareTo(start.data)>0){
+            start.right = delete(start.right,key);
+        }else{
+            if(start.left==null && start.right==null){
+                return null;
+            }else if(start.left==null){
+                return start.right;
+            }else if(start.right==null){
+                return start.left;
+            }else{
+                Node temp = start.right;
+                while(temp.left!=null){
+                    temp = temp.left;
+                }
+                start.data = temp.data;
+                start.right = delete(temp.right,start.data);
+            }
+        }
+        return start;
+
+    }
 
 
+
+    public int height(){
+        return height(root);
+    }
+    private int height(Node root){
+        if(root==null){
+            return 0;
+        }
+        int left=height(root.left);
+        int right=height(root.right);
+
+        return  Math.max(left,right)+1;
+    }
+
+
+    public boolean isValidBST(){
+        return  isValidBST(root);
+
+    }
+    private boolean isValidBST(Node start){
+        if(start==null){
+            return true;
+        }
+        if(start.left != null && start.left.data.compareTo(start.data)>0){
+            return false;
+        }
+        if(start.right != null && start.right.data.compareTo(start.data)<0){
+            return false;
+        }
+
+        return isValidBST(start.left) && isValidBST(start.right);
+    }
+
+
+    public boolean isBalanced(){
+        return isBalanced(root);
+    }
+    private boolean isBalanced(Node start){
+        if(start == null){
+            return true;
+        }
+        int leftHieght=height(start.left);
+        int rightHieght=height(start.right);
+
+        if(Math.abs(leftHieght-rightHieght)>1){
+            return false;
+        }
+
+        return isBalanced(start.left) &&  isBalanced(start.right);
+    }
 
 }
